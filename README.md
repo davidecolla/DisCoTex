@@ -18,7 +18,7 @@ $${\vec{v_1} \leftarrow s_{1}, \, \vec{v_{2}} \leftarrow s_{2}, \, \dots, \, \ve
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The proximity between each two vectors ⟨vx, vx+1⟩ ∈ V will then be computed through a distance metric Dist(s1,s2) (e.g. Jaccard), thereby resulting in (n − 1) distance scores, grasping the degree of semantic overlap between each two neighbouring sentences. In order to compute the coherence score for the paragraph P score(P), we will average the scores featuring each pair of adjacent sentences. The value will then be compared with the human rating with correlation indices:
 
-$$\text{corr}(P) = \frac{1}{n-1} \sum_{i = 1}^{n-1} Dist(v_i, v_{i%2B1}) \,,$$
+$$\text{corr}(P) = \frac{1}{n-1} \sum_{i = 1}^{n-1} Dist(v_i, v_{i+1}) \,,$$
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where corr indicates the Pearson or Spearman correlation index.
 
