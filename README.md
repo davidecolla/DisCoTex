@@ -44,7 +44,8 @@ For the second sub-task (Human score prediction) we mixed data from the two sour
 - MEAN: the coherence score of the TEXT to be predicted, based on the mean of the human judgements collected;
 - STDEV: standard deviation of the coherence score.
 
-#### 3 - Download and run the source code
+## Execution
+#### Download and run the source code
 After downloading the code, in order to run the baseline for the first sub-task run the following command:
 ```
 python run_baseline_t1.py \
