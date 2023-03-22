@@ -8,17 +8,17 @@ Two different evaluation metrics will be defined according to the task setting:
 The baseline for both tasks will be computed by employing the one-hot vectors representation:
 - For Sub-task 1: the vector will be extracted from each sentence si in the input prompt P = {s1,s2, ..., sn} and another vector will be created for the target sentence t. The distance between P and the target sentence t, D(P, t) will be computed as the average distance between each pair involving one item si and t based on a distance metric Dist (e.g., Hamming distance, Jaccard, or a Edit distance):
 
-$$\text{D}(P,t) = \frac{1}{n} \left(\sum_{i=0}^{n} \text{Dist} \langle s_i,t \rangle \right)\,$$
+$$\text{D}(P,t) = \frac{1}{n} \left(\sum_{i=0}^{n} \text{Dist} \langle s_i,t \rangle \right).$$
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To decide whether the target sentence t is coherent with the paragraph P we will first compute the median value across the whole training dataset, and then we will use this as a threshold: all the occurrences with a value above the median will be considered coherent, incoherent otherwise.
 
 - For Sub-task 2: the vector will be extracted from each sentence si in the input prompt P = {s1,s2, ..., sn}; that is the following vectors set will be computed:
 
-$${\vec{v_1} \leftarrow s_{1}, \, \vec{v_{2}} \leftarrow s_{2}, \, \dots, \, \vec{v_{n}} \leftarrow s_{n}\}\,.$$
+$${\vec{v_1} \leftarrow s_{1}, \vec{v_{2}} \leftarrow s_{2}, \dots, \vec{v_{n}} \leftarrow s_{n}\}.$$
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The proximity between each two vectors ⟨vx, vx+1⟩ ∈ V will then be computed through a distance metric Dist(s1,s2) (e.g. Jaccard), thereby resulting in (n − 1) distance scores, grasping the degree of semantic overlap between each two neighbouring sentences. In order to compute the coherence score for the paragraph P score(P), we will average the scores featuring each pair of adjacent sentences. The value will then be compared with the human rating with correlation indices:
 
-$$\text{corr}(P) = \frac{1}{n-1} \sum_{i = 1}^{n-1} Dist(v_i, v_{i+1}) \,,$$
+$$\text{corr}(P) = \frac{1}{n-1} \sum_{i = 1}^{n-1} Dist(v_i, v_{i+1}) ,$$
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where corr indicates the Pearson or Spearman correlation index.
 
